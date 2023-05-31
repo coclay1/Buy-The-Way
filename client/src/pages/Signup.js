@@ -69,7 +69,8 @@ export default SignUp = () => {
                                 </button>
                                 <div>
                                     <p>
-                                        <Link to="#">Already have an account?</Link>
+                                        Already have an account?
+                                        <Link to="#">Sign In</Link>
                                     </p>
                                 </div>
                             </form>
