@@ -75,7 +75,7 @@ const Home = () => {
             <Toolbar>
               
               <Typography variant="h6" color="inherit" noWrap>
-                Album layout
+                Buy the Way
               </Typography>
             </Toolbar>
           </AppBar>
@@ -99,9 +99,7 @@ const Home = () => {
                   Album layout
                 </Typography>
                 <Typography variant="h5" align="center" color="text.secondary" paragraph>
-                  Something short and leading about the collection below—its contents,
-                  the creator, etc. Make it short and sweet, but not too short so folks
-                  don&apos;t simply skip over it entirely.
+                  Pick a shop below to see what items are available, or create a new shop!
                 </Typography>
                 <Stack
                   sx={{ pt: 4 }}
