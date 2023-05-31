@@ -16,8 +16,24 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import theme from '../index'
+// import theme from '../index'
 
+const theme = createTheme({
+    palette: {
+        mode: 'light',
+        primary: {
+            main: '#392203',
+            contrastText: '#efcc99',
+        },
+        secondary: {
+            main: '#f50057',
+        },
+        background: {
+            default: '#85643C',
+            paper: '#f3d0a9',
+        },
+    },
+});
 
 function Copyright() {
     return (
@@ -31,6 +47,8 @@ function Copyright() {
       </Typography>
     );
   }
+
+  
 
 const Home = () => {
     // const [itemList, setItemList] = useState([]);
