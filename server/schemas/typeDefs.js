@@ -6,7 +6,7 @@ type User {
     username: String
     email: String
     password: String
-    shops: [Shops]
+    shops: [Shop]
 }
 
 type Character{
@@ -18,10 +18,10 @@ type Character{
 type Item{
     _id: ID
     itemName: String
-    itemPrice: Number
+    itemPrice: Float
 }
 
-type Shops {
+type Shop {
     _id: ID
     shopName: String
     item: [Item]
@@ -32,21 +32,21 @@ type Auth {
     user: User
   }
 type Query {
-    users: [user]
-    
-    shop(username: String): [Shops]
-    shop(ShopId: ID!): Shops
-    item(itemId: ID!): Items
-    item(shopName: String): [Items]
-    character(username: String): [Characters]
-    character(characterId: ID!): Characters
+    users: [User]
+    user(userId: ID!): User
+    shops(username: String): [Shop]
+    shop(ShopId: ID!): Shop
+    item(itemId: ID!): Item
+    items(shopName: String): [Item]
+    characters(username: String): [Character]
+    character(characterId: ID!): Character
 }
 
 type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     loginUser(email: String!, password: String!): Auth
     addShop(shopName: String!): Shops
-    addCharacter:(characterId: ID!, characterName: String!): Characters
+    addCharacter(characterId: ID!, characterName: String!): Characters
     removeShop(shopId: ID!): Shops
     removeCharacter(characterId: ID!): Characters
     addItem(itemId: ID!, itemName: String!): Items

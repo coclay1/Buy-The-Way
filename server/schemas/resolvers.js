@@ -1,17 +1,17 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought, Items, Shops, Shops } = require('../models');
+const { User, Item, Shop } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
    Query: {
       users: async () => {
-         return User.find().populate('shops');
+         return User.find().populate('shop');
       },
       user: async (parent, { userName }) => {
          return User.findOne({ userName }).populate('shops');
       },
-      shops: async (parent, { shopsName }) => {
-         return Shops.findAll({ _id: shopsId })
+      shops: async (parent, { shopName }) => {
+         return Shop.findAll({ _id: shopsId })
       },
       shop: async (parent, { shopsName }) => {
          return Shops.findOne({ _id: shopsId });
@@ -23,10 +23,10 @@ const resolvers = {
       item: async (parent, { itemName }) => {
          return Items.findOne({ _id: itemId });
       },
-      chracters: async (parent, { chractersName }) => {
+      characters: async (parent, { chractersName }) => {
          return Characters.findAll({ _id: charactersId })
       },
-      chracter: async (parent, { chractersName }) => {
+      character: async (parent, { chractersName }) => {
          return Characters.findOne({ _id: charactersId })
       },
 
@@ -76,4 +76,4 @@ const resolvers = {
 
    }
 };
-modules.exports = resolvers;
+module.exports = resolvers;
