@@ -76,4 +76,4 @@ const resolvers = {
 
    }
 };
-modules.exports = resolvers;
+module.exports = resolvers;
