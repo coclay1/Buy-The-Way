@@ -16,47 +16,47 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
 export default function Login() {
-    const [formState, setFormState] = useState({
-        email: '',
-        password: '',
+  const [formState, setFormState] = useState({
+    email: '',
+    password: '',
+  });
+  const [login, { err, data }] = useMutation(LOGIN_USER);
+
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await login({
+        variables: { ...formState }
+      });
+      Auth.login(data.login.token)
+    } catch (err) {
+      console.log(err);
+    }
+    setFormState({
+      email: '',
+      password: '',
     });
-    const [login, { err, data }] = useMutation(LOGIN_USER);
+  };
 
+  const defaultTheme = createTheme();
 
-    const handleFormSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const { data } = await login({
-                variables: { ...formState }
-            });
-            Auth.login(data.login.token)
-        } catch (err) {
-            console.log(err);
-        }
-        setFormState({
-            email: '',
-            password: '',
-        });
-    };
-
-    const defaultTheme = createTheme();
-
-    return (
-        <ThemeProvider theme={defaultTheme}>
-            <Container component="main">
-                <CssBaseline />
-                <Box
-                    sx={{
-                        marginTop: 8,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                    }}>
-                    <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}></Avatar>
-                    <Typography component="h1" variant="h5">
-                        Sign in
-                    </Typography>
-                    <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1 }}>
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <Container component="main">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}>
+          <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}></Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -89,16 +89,16 @@ export default function Login() {
             >
               Sign In
             </Button>
-            </Box>
-            <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>   
-                </Box>
-            </Container>
-        </ThemeProvider>
-    )
+          </Box>
+          <Grid item>
+            <Link href="#" variant="body2">
+              {"Don't have an account? Sign Up"}
+            </Link>
+          </Grid>
+        </Box>
+      </Container>
+    </ThemeProvider>
+  )
 }
 
 
