@@ -41,17 +41,17 @@ type Query {
     characters(username: String): [Character]
     character(characterId: ID!): Character
 }
-
 type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    loginUser(email: String!, password: String!): Auth
-    addShop(shopName: String!): Shops
-    addCharacter(characterId: ID!, characterName: String!): Characters
-    removeShop(shopId: ID!): Shops
-    removeCharacter(characterId: ID!): Characters
-    addItem(itemId: ID!, itemName: String!): Items
-    removeItem(itemId: ID!): Items
+    login(email: String!, password: String!): Auth
+    addShop(shopName: String!): Shop
+    addCharacter(characterId: ID!, characterName: String!): Character
+    removeShop(shopId: ID!): Shop
+    removeCharacter(characterId: ID!): Character
+    addItem(itemId: ID!, itemName: String!): Item
+    removeItem(itemId: ID!): Item
 }
+
 `;
 
 module.exports = typeDefs;

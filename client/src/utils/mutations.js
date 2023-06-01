@@ -40,7 +40,7 @@ export const ADD_SHOP = gql`
 `;
 
 export const ADD_CHARACTER = gql`
-  mutation addCharacter($characterName: String)
+  mutation addCharacter($characterName: String){
     addCharacter(characterName: $characterName) {
       _id
       characterName
@@ -50,6 +50,7 @@ export const ADD_CHARACTER = gql`
         itemPrice
       }
     }
+  }
 `;
 
 export const REMOVE_SHOP = gql`
