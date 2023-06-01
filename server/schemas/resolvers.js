@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought, Items, Shops, Shops } = require('../models');
+const { User, Characters, Items, Shops } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -10,23 +10,23 @@ const resolvers = {
       user: async (parent, { userName }) => {
          return User.findOne({ userName }).populate('shops');
       },
-      shops: async (parent, { shopsName }) => {
+      shops: async (parent, { shopsId }) => {
          return Shops.findAll({ _id: shopsId })
       },
-      shop: async (parent, { shopsName }) => {
+      shop: async (parent, { shopsId }) => {
          return Shops.findOne({ _id: shopsId });
       },
       items: async (parent, { itemName }) => {
          const params = itemName ? { itemName } : {};
          return Items.find(params).sort({ createdAt: -1 });
       },
-      item: async (parent, { itemName }) => {
+      item: async (parent, { itemId }) => {
          return Items.findOne({ _id: itemId });
       },
-      chracters: async (parent, { chractersName }) => {
+      chracters: async (parent, { charactersId }) => {
          return Characters.findAll({ _id: charactersId })
       },
-      chracter: async (parent, { chractersName }) => {
+      chracter: async (parent, { charactersId }) => {
          return Characters.findOne({ _id: charactersId })
       },
 
@@ -58,6 +58,13 @@ const resolvers = {
          if (context.user) {
             const shop = await Shops.create({
                shopsName,
+            });
+         }
+      },
+      addCharacter: async (parent, { charactersName }, context) => {
+         if (context.user) {
+            const character = await Characters.create({
+               charactersName,
             });
          }
       },
