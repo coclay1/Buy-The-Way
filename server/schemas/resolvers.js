@@ -4,14 +4,14 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
    Query: {
-      users: async () => {
+    users: async () => {
          return User.find().populate('shops');
       },
-      user: async (parent, { userName }) => {
-         return User.findOne({ userName }).populate('shops');
+      user: async (parent, { username }) => {
+         return User.findOne({ username }).populate('shop');
       },
-      shops: async (parent, { shopId }) => {
-         return Shops.findAll({ _id: shopId })
+      shops: async (parent, { username }) => {
+         return Shops.find({ username })
       },
       shop: async (parent, { shopId }) => {
          return Shops.findOne({ _id: shopId });
