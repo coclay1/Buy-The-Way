@@ -5,29 +5,29 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
    Query: {
       users: async () => {
-         return User.find().populate('shops');
+         return await User.find().populate('shops');
       },
       user: async (parent, { userName }) => {
-         return User.findOne({ userName }).populate('shops');
+         return await User.findOne({ userName }).populate('shops');
       },
-      shops: async (parent, { shopsId }) => {
-         return Shops.findAll({ _id: shopsId })
+      shops: async (parent, { shopId }) => {
+         return await Shops.findAll({ _id: shopId })
       },
-      shop: async (parent, { shopsId }) => {
-         return Shops.findOne({ _id: shopsId });
+      shop: async (parent, { shopId }) => {
+         return await Shops.findOne({ _id: shopId });
       },
       items: async (parent, { itemName }) => {
          const params = itemName ? { itemName } : {};
-         return Items.find(params).sort({ createdAt: -1 });
+         return await Items.find(params).sort({ createdAt: -1 });
       },
       item: async (parent, { itemId }) => {
-         return Items.findOne({ _id: itemId });
+         return await Items.findOne({ _id: itemId });
       },
-      chracters: async (parent, { charactersId }) => {
-         return Characters.findAll({ _id: charactersId })
+      characters: async (parent, { userName }) => {
+         return await User.findOne({ userName }).populate("characters")
       },
-      chracter: async (parent, { charactersId }) => {
-         return Characters.findOne({ _id: charactersId })
+      character: async (parent, { characterId }) => {
+         return await Characters.findOne({ _id: characterId })
       },
 
    },
@@ -61,13 +61,14 @@ const resolvers = {
             });
          }
       },
-      addCharacter: async (parent, { charactersName }, context) => {
+      addCharacter: async (parent, { characterName }, context) => {
          if (context.user) {
-            const character = await Characters.create({
-               charactersName,
+            const shop = await Character.create({
+               characterName,
             });
          }
       },
+      
       addItem: async (parent, { shopId, itemName }, context) => {
          if (context.user) {
             return Items.findOneAndUpdate(
@@ -83,4 +84,4 @@ const resolvers = {
 
    }
 };
-modules.exports = resolvers;
+module.exports = resolvers;
