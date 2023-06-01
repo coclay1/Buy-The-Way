@@ -4,7 +4,7 @@ const { User, Shops, Items, Characters } = require('../models');
 db.once('open', async () => {
 await User.deleteMany();
   await User.create({
-  userName: 'MrHolt45',
+  username: 'MrHolt45',
   email: 'eholt@testmail.com',
   password: 'password12345'
 })
