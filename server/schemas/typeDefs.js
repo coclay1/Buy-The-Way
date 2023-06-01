@@ -6,11 +6,13 @@ type User {
     username: String
     email: String
     password: String
+    shops: [Shops]
 }
 
 type Character{
     _id: ID
     charactersName: String
+    item: [Item]
 }
 
 type Item{
@@ -22,6 +24,7 @@ type Item{
 type Shops {
     _id: ID
     shopName: String
+    item: [Item]
 }
 
 type Auth {
