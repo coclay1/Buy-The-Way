@@ -78,11 +78,16 @@ export default function SignUp() {
                                     autoComplete="new-password"
                                 />
                             </Grid>
-                            <Button>
-
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 1, mb: 1 }}
+                                >
+                                Sign Up
                             </Button>
-                            <Grid>
-                                <Link>
+                            <Grid container justifyContent="flex-end">
+                                <Link>Already have an Account?
                                 </Link>
                             </Grid>
                         </Grid>
