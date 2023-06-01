@@ -44,7 +44,7 @@ type Query {
 
 type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
+    loginUser(email: String!, password: String!): Auth
     addShop(shopName: String!): Shops
     addCharacter:(characterId: ID!, characterName: String!): Characters
     removeShop(shopId: ID!): Shops
