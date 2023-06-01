@@ -31,4 +31,11 @@ const resolvers = {
      },
 
     },
+    Mutation: {
+    removeThought: async (parent, { thoughtId }) => {
+      return Thought.findOneAndDelete({ _id: thoughtId });
     }
+   }
+}
+
+ 

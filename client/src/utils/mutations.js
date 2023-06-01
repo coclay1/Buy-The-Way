@@ -29,10 +29,27 @@ export const ADD_SHOP = gql`
   mutation addShop($shopName: String!) {
     addShop(shopName: $shopName) {
       _id
-      username
-      email
+      shopName
+      item {
+        _id
+        itemName
+        itemPrice
+      }
     }
   }
+`;
+
+export const ADD_CHARACTER = gql`
+  mutation addCharacter($characterName: String)
+    addCharacter(characterName: $characterName) {
+      _id
+      characterName
+      item{
+        _id
+        itemName
+        itemPrice
+      }
+    }
 `;
 
 export const REMOVE_SHOP = gql`
@@ -49,8 +66,12 @@ export const ADD_ITEM = gql`
   mutation addItem($itemId: ID!, $itemName: String!) {
     addItem(itemId: $itemId, itemName: $itemName) {
       _id
-      username
-      email
+      shopName
+      item {
+        _id
+        itemName
+        itemPrice
+      }
     }
   }
 `;
