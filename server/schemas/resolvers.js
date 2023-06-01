@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought, Items, Shops, Shops } = require('../models');
+const { User, Characters, Items, Shops } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -10,24 +10,24 @@ const resolvers = {
       user: async (parent, { userName }) => {
          return User.findOne({ userName }).populate('shops');
       },
-      shops: async (parent, { shopsName }) => {
-         return Shops.findAll({ _id: shopsId })
+      shops: async (parent, { shopId }) => {
+         return Shops.findAll({ _id: shopId })
       },
-      shop: async (parent, { shopsName }) => {
-         return Shops.findOne({ _id: shopsId });
+      shop: async (parent, { shopId }) => {
+         return Shops.findOne({ _id: shopId });
       },
       items: async (parent, { itemName }) => {
          const params = itemName ? { itemName } : {};
          return Items.find(params).sort({ createdAt: -1 });
       },
-      item: async (parent, { itemName }) => {
+      item: async (parent, { itemId }) => {
          return Items.findOne({ _id: itemId });
       },
-      chracters: async (parent, { chractersName }) => {
-         return Characters.findAll({ _id: charactersId })
+      characters: async (parent, { characterId }) => {
+         return Characters.findAll({ _id: characterId })
       },
-      chracter: async (parent, { chractersName }) => {
-         return Characters.findOne({ _id: charactersId })
+      character: async (parent, { characterId }) => {
+         return Characters.findOne({ _id: characterId })
       },
 
    },
@@ -61,6 +61,14 @@ const resolvers = {
             });
          }
       },
+      addCharacter: async (parent, { characterName }, context) => {
+         if (context.user) {
+            const shop = await Character.create({
+               characterName,
+            });
+         }
+      },
+      
       addItem: async (parent, { shopId, itemName }, context) => {
          if (context.user) {
             return Items.findOneAndUpdate(
@@ -76,4 +84,4 @@ const resolvers = {
 
    }
 };
-modules.exports = resolvers;
+module.exports = resolvers;
