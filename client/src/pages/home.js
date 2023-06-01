@@ -18,6 +18,8 @@ import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import theme from '../index'
 
+import {GiAnvil, GiPotionBall, GiTargetArrows, GiScrollQuill, FaRegGem} from "react-icons/fa";
+
 const theme = createTheme({
     palette: {
         mode: 'light',
