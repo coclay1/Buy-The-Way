@@ -13,9 +13,9 @@ export const ADD_USER = gql`
   }
 `;
 
-export const LOGIN = gql`
-  mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+export const LOGIN_USER = gql`
+  mutation loginUser($email: String!, $password: String!) {
+    loginUser(email: $email, password: $password) {
       token
       user {
         _id
@@ -40,7 +40,7 @@ export const ADD_SHOP = gql`
 `;
 
 export const ADD_CHARACTER = gql`
-  mutation addCharacter($characterName: String)
+  mutation addCharacter($characterName: String){
     addCharacter(characterName: $characterName) {
       _id
       characterName
@@ -50,6 +50,7 @@ export const ADD_CHARACTER = gql`
         itemPrice
       }
     }
+  }
 `;
 
 export const REMOVE_SHOP = gql`

@@ -4,7 +4,7 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
 
-export default function SignUp () {
+export default SignUp = () => {
     const [formState, setFormState] = useState({
         username: '',
         email: '',
