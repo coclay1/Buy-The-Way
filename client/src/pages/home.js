@@ -15,8 +15,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
-import { CardActionArea } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { QUERY_SHOPS } from '../utils/queries';
+import ShopList from '../components/ShopList';
 // import theme from '../index'
 
 import { GiAnvil, GiPotionBall, GiTargetArrows, GiScrollQuill, FaRegGem } from "react-icons/fa";
@@ -54,22 +55,10 @@ function Copyright() {
 
 
 const Home = () => {
-  // const [itemList, setItemList] = useState([]);
-  // useEffect(() => {
-  //     const getItemList = async () => {
-  //       try {
-  //         const res = await getAllItems();
-  //         if (!res.ok) {
-  //           throw new Error('No items found');
-  //         }
-  //         const itemList = await res.json();
-  //         setItemList(itemList);
-  //       } catch (err) {
-  //         console.error(err);
-  //       }
-  //     };
-  //     getItemList();
-  //   }, []);
+  const { loading, data } = useQuery(QUERY_SHOPS);
+  const shops = data?.shops || [];
+
+
   const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <ThemeProvider theme={theme}>
@@ -115,33 +104,10 @@ const Home = () => {
             </Stack>
           </Container>
         </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={6}>
-                <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                  <CardActionArea>
-                    <CardMedia
-                      component="div"
-                      sx={{
-                        // 16:9
-                        pt: '56.25%',
-                      }}
-                      image="https://source.unsplash.com/random?wallpapers"
-                    />
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography gutterBottom variant="h5" align="center" component="div">
-                        Blacksmith
-                      </Typography>
-
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
+                <ShopList
+                  shops={shops}
+                  title="Your Shops:"
+                />
       </main>
       {/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
