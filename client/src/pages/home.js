@@ -16,28 +16,13 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Theme } from '../utils/theme'
 import { QUERY_SHOPS } from '../utils/queries';
 import ShopList from '../components/ShopList';
 // import theme from '../index'
 
 import { GiAnvil, GiPotionBall, GiTargetArrows, GiScrollQuill, FaRegGem } from "react-icons/fa";
 
-const theme = createTheme({
-  palette: {
-    mode: 'light',
-    primary: {
-      main: '#392203',
-      contrastText: '#efcc99',
-    },
-    secondary: {
-      main: '#f50057',
-    },
-    background: {
-      default: '#85643C',
-      paper: '#f3d0a9',
-    },
-  },
-});
 
 function Copyright() {
   return (
@@ -59,9 +44,9 @@ const Home = () => {
   const shops = data?.shops || [];
 
 
-  const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={Theme}>
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
