@@ -17,6 +17,10 @@ const resolvers = {
       shop: async (parent, { shopId }) => {
          return await Shops.findOne({ _id: shopId });
       },
+      characters: async (parent, { userName }) => {
+         const params = userName ? { userName } : {};
+         return Characters.find(params).populate("items");
+      },
       items: async (parent, { shopId }) => {
          const params = shopId ? { shopId } : {};
          return await Items.find(params);
@@ -24,13 +28,6 @@ const resolvers = {
       item: async (parent, { itemId }) => {
          return await Items.findOne({ _id: itemId });
       },
-      characters: async (parent, { userName }) => {
-         return await User.findOne({ userName }).populate("characters")
-      },
-      character: async (parent, { characterId }) => {
-         return await Characters.findOne({ _id: characterId })
-      },
-
    },
    Mutation: {
       addUser: async (parent, { username, email, password }) => {
