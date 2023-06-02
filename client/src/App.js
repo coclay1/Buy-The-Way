@@ -8,8 +8,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Signup from './pages/signup';
-import Login from './pages/login';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
 import Home from './pages/home';
 import Header from './components/Header'
 
