@@ -22,10 +22,18 @@ export default function SignUp() {
     });
     const [addUser, { error, data }] = useMutation(ADD_USER);
 
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+    
+        setFormState({
+          ...formState,
+          [name]: value,
+        });
+      };
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
-
+        console.log(formState)
         try {
             const { data } = await addUser({
                 variables: { ...formState },
@@ -59,7 +67,20 @@ export default function SignUp() {
                                     id="email"
                                     label="Email Address"
                                     name="email"
+                                    value={formState.email}
                                     autoComplete="email"
+                                    onChange={handleChange}
+                                />
+                                <TextField
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="username"
+                                    label="Username"
+                                    name="username"
+                                    value={formState.username}
+                                    autoComplete="email"
+                                    onChange={handleChange}
                                 />
                                 <TextField
                                     margin="normal"
@@ -69,6 +90,8 @@ export default function SignUp() {
                                     label="Password"
                                     name="password"
                                     type="password"
+                                    value={formState.password}
+                                    onChange={handleChange}
                                     autoComplete="new-password"
                                 />
                             <Button

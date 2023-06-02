@@ -33,12 +33,12 @@ type Auth {
   }
 type Query {
     users: [User]
-    user(userId: ID!): User
+    user(username: String!): User
     shops(username: String): [Shop]
     shop(shopId: ID!): Shop
     item(itemId: ID!): Item
     items(shopName: String): [Item]
-    characters(userName: String): [Character]
+    characters(username: String): [Character]
     character(characterId: ID!): Character
 }
 type Mutation {
