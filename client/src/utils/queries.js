@@ -26,10 +26,10 @@ export const QUERY_ALL_ITEMS = gql`
 `;
 
 export const QUERY_SHOPS = gql`
-  {
+  query getShops {
     shops {
       _id
-      shopName
+      shopsName
     }
   }
 `;
