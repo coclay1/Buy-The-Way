@@ -23,8 +23,8 @@ type Item{
 
 type Shop {
     _id: ID
-    shopName: String
-    item: [Item]
+    shopsName: String
+    items: [Item]
 }
 
 type Auth {
