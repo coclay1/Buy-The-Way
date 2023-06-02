@@ -34,6 +34,21 @@ export const QUERY_SHOPS = gql`
   }
 `;
 
+export const QUERY_SINGLE_SHOP = gql`
+  query getSingleShop($shopId: ID!) {
+    shop(shopId: $shopId) {
+      _id
+      shopName
+      items {
+        _id
+        itemName
+        itemPrice
+      }
+    }
+
+  }
+`;
+
 export const QUERY_USER = gql`
   {
     user {
