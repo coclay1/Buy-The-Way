@@ -20,13 +20,7 @@ export default function SignUp() {
         password: ''
     });
     const [addUser, { error, data }] = useMutation(ADD_USER);
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormState({
-            ...formState,
-            [name]: value,
-        });
-    };
+
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
@@ -55,10 +49,10 @@ export default function SignUp() {
                     }}>
                     <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}></Avatar>
                     <Typography component="h1" variant="h5">Sign up</Typography>
-                    <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 3 }}>
+                    <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 1 }}>
                         <Grid container spacing={3}>
-                            <Grid item xs={12}>
                                 <TextField
+                                    margin="normal"
                                     required
                                     fullWidth
                                     id="email"
@@ -66,9 +60,8 @@ export default function SignUp() {
                                     name="email"
                                     autoComplete="email"
                                 />
-                            </Grid>
-                            <Grid item xs={12}>
                                 <TextField
+                                    margin="normal"
                                     required
                                     fullWidth
                                     id="password"
@@ -77,17 +70,16 @@ export default function SignUp() {
                                     type="password"
                                     autoComplete="new-password"
                                 />
-                            </Grid>
                             <Button
                                 type="submit"
                                 fullWidth
                                 variant="contained"
-                                sx={{ mt: 1, mb: 1 }}
-                                >
+                                sx={{ mt: 3, mb: 2 }}
+                            >
                                 Sign Up
                             </Button>
                             <Grid container justifyContent="flex-end">
-                                <Link>Already have an Account?
+                                <Link to="/login" variant="body2">{"Already have an Account?"}
                                 </Link>
                             </Grid>
                         </Grid>
