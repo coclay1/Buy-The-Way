@@ -12,7 +12,7 @@ type User {
 type Character{
     _id: ID
     charactersName: String
-    item: [Item]
+    items: [Item]
 }
 
 type Item{
