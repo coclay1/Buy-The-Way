@@ -16,12 +16,20 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
 export default function Login() {
-    const [formState, setFormState] = useState({
-        email: '',
-        password: '',
-    });
-    const [login, { err, data }] = useMutation(LOGIN_USER);
+  const [formState, setFormState] = useState({
+    email: '',
+    password: '',
+  });
+  const [login, { err, data }] = useMutation(LOGIN_USER);
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -41,62 +49,66 @@ export default function Login() {
 
   const defaultTheme = createTheme();
 
-    return (
-      <ThemeProvider theme={defaultTheme}>
-        <Container component="main">
-          <CssBaseline />
-          <Box
-            sx={{
-              marginTop: 8,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}>
-            <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}></Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography>
-            <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1 }}>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Sign In
-              </Button>
-            </Box>
-            <Grid item>
-              <Link to='/signup' variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <Container component="main">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}>
+          <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}></Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              value={formState.email}
+              onChange={handleChange}
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              value={formState.password}
+              onChange={handleChange}
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign In
+            </Button>
           </Box>
-        </Container>
-      </ThemeProvider>
-    )
+          <Grid item>
+            <Link to='/signup' variant="body2">
+              {"Don't have an account? Sign Up"}
+            </Link>
+          </Grid>
+        </Box>
+      </Container>
+    </ThemeProvider>
+  )
 }
