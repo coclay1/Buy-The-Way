@@ -4,7 +4,7 @@ const { User, Shops, Items, Characters } = require('../models');
 db.once('open', async () => {
 await User.deleteMany();
   await User.create({
-  userName: 'MrHolt45',
+  username: 'MrHolt45',
   email: 'eholt@testmail.com',
   password: 'password12345'
 })
@@ -29,6 +29,8 @@ await Items.deleteMany();
   itemPrice: 999999},
   {itemName: 'Phoenix Tail Wand',
   itemPrice: 5000},
+  {itemName: 'Empty Backpack',
+  itemPrice: 10},
 ]);
   console.log('Item Created');
 
@@ -54,7 +56,17 @@ await Items.deleteMany();
     items[5]._id, items[7]._id,
   ]
     },
-  ])
+  ]);
+
+  await Characters.deleteMany();
+  const character = await Characters.insertMany([
+    {charactersName: 'Vagabond Vance',
+  items:
+  [
+    items[8]._id,
+  ]
+    },
+  ]);
 
   
 
