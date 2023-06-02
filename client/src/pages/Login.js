@@ -63,7 +63,7 @@ export default function Login() {
           }}>
           <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}></Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Log in
           </Typography>
           <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1 }}>
             <TextField

@@ -33,7 +33,7 @@ export default function SignUp() {
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
-
+        console.log(formState)
         try {
             const { data } = await addUser({
                 variables: { ...formState },
