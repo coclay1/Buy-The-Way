@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Auth from '../utils/auth';
+import BasicButtons from '../../src/components/Button/button.js';
 
 export default function Header() {
     const logout = (e) => {
@@ -24,11 +25,7 @@ export default function Header() {
                             onClick={logout}>
                             Log out</button></>
                 ) : (
-                    <>
-                    <Link
-                    className='btn btn-md m-2' to='/login'>Login</Link>
-                    <Link
-                    className='btn btn-md m-2' to='/signup'>Signup</Link></>
+                   <BasicButtons/>
                 )}
             </div>
         </header>
