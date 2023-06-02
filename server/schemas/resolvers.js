@@ -4,32 +4,30 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
    Query: {
-      users: async () => {
+    users: async () => {
          return User.find().populate('shops');
       },
-      user: async (parent, { userName }) => {
-         return User.findOne({ userName }).populate('shops');
+      user: async (parent, { username }) => {
+         return User.findOne({ username }).populate('shop');
       },
-      shops: async (parent, { shopId }) => {
-         return Shops.findAll({ _id: shopId })
+      shops: async (parent, { username }) => {
+         const params = username ? { username } : {};
+         return Shops.find(params).populate("items");
       },
       shop: async (parent, { shopId }) => {
-         return Shops.findOne({ _id: shopId });
+         return await Shops.findOne({ _id: shopId });
       },
-      items: async (parent, { itemName }) => {
-         const params = itemName ? { itemName } : {};
-         return Items.find(params).sort({ createdAt: -1 });
+      characters: async (parent, { userName }) => {
+         const params = userName ? { userName } : {};
+         return Characters.find(params).populate("items");
+      },
+      items: async (parent, { shopId }) => {
+         const params = shopId ? { shopId } : {};
+         return await Items.find(params);
       },
       item: async (parent, { itemId }) => {
-         return Items.findOne({ _id: itemId });
+         return await Items.findOne({ _id: itemId });
       },
-      characters: async (parent, { characterId }) => {
-         return Characters.findAll({ _id: characterId })
-      },
-      character: async (parent, { characterId }) => {
-         return Characters.findOne({ _id: characterId })
-      },
-
    },
    Mutation: {
       addUser: async (parent, { username, email, password }) => {

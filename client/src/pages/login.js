@@ -37,7 +37,6 @@ export default function Login() {
       email: '',
       password: '',
     });
-  };
 
   const defaultTheme = createTheme();
 
@@ -186,4 +185,3 @@ export default function Login() {
 //           </div>
 //       </main>
 //   )
-// }
