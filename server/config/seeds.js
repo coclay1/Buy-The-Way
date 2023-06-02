@@ -31,6 +31,8 @@ await Items.deleteMany();
   itemPrice: 5000},
   {itemName: 'Empty Backpack',
   itemPrice: 10},
+  {itemName: 'Bottomless Bag',
+  itemPrice: 1000},
 ]);
   console.log('Item Created');
 
@@ -64,6 +66,12 @@ await Items.deleteMany();
   items:
   [
     items[8]._id,
+  ]
+    },
+    {charactersName: 'Traveling Travis',
+  items:
+  [
+    items[9]._id,
   ]
     },
   ]);

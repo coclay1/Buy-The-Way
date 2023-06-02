@@ -15,7 +15,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 export default function SignUp() {
-
     const [formState, setFormState] = useState({
         username: '',
         email: '',

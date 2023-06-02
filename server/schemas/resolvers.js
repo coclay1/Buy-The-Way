@@ -15,11 +15,14 @@ const resolvers = {
          return Shops.find(params).populate("items");
       },
       shop: async (parent, { shopId }) => {
-         return await Shops.findOne({ _id: shopId });
+         return await Shops.findOne({ _id: shopId }).populate("items");
       },
       characters: async (parent, { userName }) => {
          const params = userName ? { userName } : {};
          return Characters.find(params).populate("items");
+      },
+      character: async (parent, { characterId }) => {
+         return await Characters.findOne({ _id: characterId }).populate("items");
       },
       items: async (parent, { shopId }) => {
          const params = shopId ? { shopId } : {};
