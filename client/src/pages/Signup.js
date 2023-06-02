@@ -13,7 +13,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+
 export default function SignUp() {
+
     const [formState, setFormState] = useState({
         username: '',
         email: '',
