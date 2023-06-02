@@ -11,23 +11,24 @@ const resolvers = {
          return User.findOne({ username }).populate('shop');
       },
       shops: async (parent, { username }) => {
-         return Shops.find({ username })
+         const params = username ? { username } : {};
+         return Shops.find(params).populate("items");
       },
       shop: async (parent, { shopId }) => {
-         return Shops.findOne({ _id: shopId });
+         return await Shops.findOne({ _id: shopId });
       },
-      items: async (parent, { itemName }) => {
-         const params = itemName ? { itemName } : {};
-         return Items.find(params).sort({ createdAt: -1 });
+      items: async (parent, { shopId }) => {
+         const params = shopId ? { shopId } : {};
+         return await Items.find(params);
       },
       item: async (parent, { itemId }) => {
-         return Items.findOne({ _id: itemId });
+         return await Items.findOne({ _id: itemId });
       },
-      characters: async (parent, { characterId }) => {
-         return Characters.findAll({ _id: characterId })
+      characters: async (parent, { userName }) => {
+         return await User.findOne({ userName }).populate("characters")
       },
       character: async (parent, { characterId }) => {
-         return Characters.findOne({ _id: characterId })
+         return await Characters.findOne({ _id: characterId })
       },
 
    },

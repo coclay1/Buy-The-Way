@@ -23,8 +23,8 @@ type Item{
 
 type Shop {
     _id: ID
-    shopName: String
-    item: [Item]
+    shopsName: String
+    items: [Item]
 }
 
 type Auth {
@@ -35,10 +35,10 @@ type Query {
     users: [User]
     user(userId: ID!): User
     shops(username: String): [Shop]
-    shop(ShopId: ID!): Shop
+    shop(shopId: ID!): Shop
     item(itemId: ID!): Item
     items(shopName: String): [Item]
-    characters(username: String): [Character]
+    characters(userName: String): [Character]
     character(characterId: ID!): Character
 }
 type Mutation {
