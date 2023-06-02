@@ -25,6 +25,16 @@ export const QUERY_ALL_ITEMS = gql`
   }
 `;
 
+export const QUERY_SINGLE_ITEM = gql`
+  query getSingleItem($itemID: ID!) {
+    item(itemId: $itemId) {
+      _id
+      itemName
+      itemPrice
+    }
+  }
+`;
+
 export const QUERY_SHOPS = gql`
   query getShops {
     shops {

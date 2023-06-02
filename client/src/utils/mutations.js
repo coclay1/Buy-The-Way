@@ -64,8 +64,8 @@ export const REMOVE_SHOP = gql`
 `;
 
 export const ADD_ITEM = gql`
-  mutation addItem($itemId: ID!, $itemName: String!) {
-    addItem(itemId: $itemId, itemName: $itemName) {
+  mutation addItem($shopId: ID!, $itemName: String!) {
+    addItem(shopId: $shopId, itemName: $itemName) {
       _id
       shopName
       item {

@@ -9,7 +9,7 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Signup from './pages/Signup';
-import Login from './pages/Login';
+import Login from './pages/login';
 import Home from './pages/home';
 import Header from './components/Header'
 
@@ -56,6 +56,10 @@ function App() {
                     <Route
                         path="/signup"
                         element={<Signup />}
+                    />
+                    <Route
+                        path="/shop/:shopId"
+                        element={<SingleShop />}
                     />
                 </Routes>
             </>
