@@ -3,25 +3,37 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-export default function SignUp () {
+
+export default function SignUp() {
     const [formState, setFormState] = useState({
         username: '',
         email: '',
         password: ''
     });
     const [addUser, { error, data }] = useMutation(ADD_USER);
-    const handleChange = (e) => {
-        const { name, value } = e.target;
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+    
         setFormState({
-            ...formState,
-            [name]: value,
+          ...formState,
+          [name]: value,
         });
-    };
+      };
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
-
+        console.log(formState)
         try {
             const { data } = await addUser({
                 variables: { ...formState },
@@ -31,53 +43,73 @@ export default function SignUp () {
             console.log(err);
         }
     }
+    const defaultTheme = createTheme();
 
     return (
-        <main className='flex-row justify-center mb-4'>
-            <div className='col-12 col-lg-10'>
-                <div className='card'>
-                    <h2 className='card-header'>Sign Up</h2>
-                    <div className='card-body'>
-                        {data ? (
-                            <p>Thank you for signing up!</p>
-                        ) : (
-                            <form onSubmit={handleFormSubmit}>
-                                <input
-                                    className='form-input'
-                                    placeholder='username'
-                                    name='username'
-                                    type='text'
-                                    value={formState.name}
-                                    onChange={handleChange} />
-                                <input
-                                    className='form-input'
-                                    placeholder='email'
-                                    name='email'
-                                    type='email'
+        <ThemeProvider theme={defaultTheme}>
+            <Container component="main">
+                <CssBaseline />
+                <Box
+                    sx={{
+                        marginTop: 8,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                    }}>
+                    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}></Avatar>
+                    <Typography component="h1" variant="h5">Sign up</Typography>
+                    <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 1 }}>
+                        <Grid container spacing={3}>
+                                <TextField
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="email"
+                                    label="Email Address"
+                                    name="email"
                                     value={formState.email}
-                                    onChange={handleChange} />
-                                <input
-                                    className='form-input'
-                                    placeholder='******'
-                                    name='password'
-                                    type='password'
+                                    autoComplete="email"
+                                    onChange={handleChange}
+                                />
+                                <TextField
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="username"
+                                    label="Username"
+                                    name="username"
+                                    value={formState.username}
+                                    autoComplete="email"
+                                    onChange={handleChange}
+                                />
+                                <TextField
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="password"
+                                    label="Password"
+                                    name="password"
+                                    type="password"
                                     value={formState.password}
-                                    onChange={handleChange} />
-                                <button
-                                    className='btn btn-block btn-primary'
-                                    type='submit'> Sign Up
-                                </button>
-                                <div>
-                                    <p>
-                                        Already have an account?
-                                        <Link to="#">Sign In</Link>
-                                    </p>
-                                </div>
-                            </form>
-                        )}
-                    </div>
-                </div>
-            </div>
-        </main>
+                                    onChange={handleChange}
+                                    autoComplete="new-password"
+                                />
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2 }}
+                            >
+                                Sign Up
+                            </Button>
+                            <Grid container justifyContent="flex-end">
+                                <Link to="/login" variant="body2">{"Already have an Account?"}
+                                </Link>
+                            </Grid>
+                        </Grid>
+                    </Box>
+                </Box>
+            </Container>
+        </ThemeProvider>
     )
 }
