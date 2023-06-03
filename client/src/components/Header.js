@@ -19,7 +19,6 @@ export default function Header() {
             <div>
                 {Auth.loggedIn() ? (
                     <>
-                    {Auth.getProfile().data.username}'s profile
                         <button
                             className='btn btn-md m-2'
                             onClick={logout}>

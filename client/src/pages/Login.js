@@ -24,6 +24,14 @@ export default function Login() {
   });
   const [login, { err, data }] = useMutation(LOGIN_USER);
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();

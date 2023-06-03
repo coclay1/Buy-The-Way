@@ -17,8 +17,8 @@ const resolvers = {
       shop: async (parent, { shopId }) => {
          return await Shops.findOne({ _id: shopId }).populate("items");
       },
-      characters: async (parent, { userName }) => {
-         const params = userName ? { userName } : {};
+      characters: async (parent, { username }) => {
+         const params = username ? { username } : {};
          return Characters.find(params).populate("items");
       },
       character: async (parent, { characterId }) => {
