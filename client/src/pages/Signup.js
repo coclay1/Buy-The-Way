@@ -12,6 +12,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Theme } from '../utils/theme'
 
 
 export default function SignUp() {
@@ -38,7 +39,7 @@ export default function SignUp() {
     const defaultTheme = createTheme();
 
     return (
-        <ThemeProvider theme={defaultTheme}>
+        <ThemeProvider theme={Theme}>
             <Container component="main">
                 <CssBaseline />
                 <Box
@@ -47,10 +48,11 @@ export default function SignUp() {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
+                        bgcolor: 'background.paper'
                     }}>
                     <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}></Avatar>
                     <Typography component="h1" variant="h5">Sign up</Typography>
-                    <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 1 }}>
+                    <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 1, bgcolor: 'background.paper' }}>
                         <Grid container spacing={3}>
                                 <TextField
                                     margin="normal"

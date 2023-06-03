@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import { Theme } from '../utils/theme'
 
 
 export default function Login() {
@@ -43,7 +44,7 @@ export default function Login() {
   const defaultTheme = createTheme();
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={Theme}>
       <Container component="main">
         <CssBaseline />
         <Box
@@ -52,12 +53,13 @@ export default function Login() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            bgcolor: 'background.paper'
           }}>
           <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}></Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1, bgcolor: 'background.paper' }}>
             <TextField
               margin="normal"
               required
@@ -67,6 +69,7 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
+              
             />
             <TextField
               margin="normal"

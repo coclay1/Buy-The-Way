@@ -1,9 +1,9 @@
 import React from 'react';
-
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { useMutation, useState } from '@apollo/client';
-import { ADD_ITEM } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { ADD_ITEM } from '../utils/mutations';
 
 const SingleShop = () => {
     const [formState, setFormState] = useState({
@@ -35,7 +35,6 @@ const SingleShop = () => {
     
         if (name === 'itemName' && value.length <= 280) {
           setFormState({ ...formState, [name]: value });
-          setCharacterCount(value.length);
         } else if (name !== 'itemName') {
           setFormState({ ...formState, [name]: value });
         }
