@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Home from './pages/home';
+import SingleShop from './pages/singleshop'
 import Header from './components/Header'
 
 
@@ -56,6 +57,10 @@ function App() {
                     <Route
                         path="/signup"
                         element={<Signup />}
+                    />
+                    <Route
+                        path="/shop/:shopId"
+                        element={<SingleShop />}
                     />
                 </Routes>
             </>
