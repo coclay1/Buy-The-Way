@@ -18,6 +18,7 @@ import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { QUERY_SHOPS } from '../utils/queries';
 import ShopList from '../components/ShopList';
+import Logo from '../images/buy-the-way-2.png'
 // import theme from '../index'
 
 import { GiAnvil, GiPotionBall, GiTargetArrows, GiScrollQuill, FaRegGem } from "react-icons/fa";
@@ -112,7 +113,7 @@ const Home = () => {
       {/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+        <img src={Logo} width= "100px"/>
         </Typography>
         <Typography
           variant="subtitle1"
