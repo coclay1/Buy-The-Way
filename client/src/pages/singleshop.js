@@ -57,12 +57,19 @@ const SingleShop = () => {
   };
 
   const {shopId} = useParams()
+  console.log(shopId);
 
-  const { loading, data } = useQuery(QUERY_SINGLE_SHOP, {
+  const { loading, errors, data } = useQuery(QUERY_SINGLE_SHOP, {
     variables: {shopId: shopId}
   });
-  const shops = data?.shop || [];
+  console.log(data);
+  
 
+  if (loading) {
+    return <div>Loading...</div>; // Show a loading state while data is being fetched
+  }
+
+  const shops = data?.shop || [];
 
   function Copyright() {
     return (

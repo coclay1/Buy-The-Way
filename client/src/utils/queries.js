@@ -4,7 +4,7 @@ export const SHOP = gql`
   query getShop($username: String) {
     shops(username: $username) {
       _id
-      shopName
+      shopsName
       item {
         _id
         itemName
@@ -65,7 +65,7 @@ export const QUERY_USER = gql`
       username
       shops {
         _id
-        shopName
+        shopsName
         items {
           _id
           itemName

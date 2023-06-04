@@ -50,9 +50,9 @@ const ItemForm = () => {
           alignItems: 'center',
           bgcolor: 'background.paper'
         }}>
-        <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}></Avatar>
+        
         <Typography component="h1" variant="h5">
-          Sign in
+          Create Your Item!
         </Typography>
         <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1, bgcolor: 'background.paper' }}>
           <TextField
@@ -70,11 +70,11 @@ const ItemForm = () => {
             margin="normal"
             required
             fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
+            name="itemPrice"
+            label="Item Price"
+            type="itemPrice"
+            id="itemPrice"
+            autoComplete="itemName"
           />
           <Button
             type="submit"
@@ -92,4 +92,4 @@ const ItemForm = () => {
   );
 };
 
-export default ThoughtForm;
+export default ItemForm;
