@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Logo from '../images/signBuyTheWay.jpg'
 
 import Auth from '../utils/auth';
 import BasicButtons from '../../src/components/Button/button.js';
@@ -13,7 +14,7 @@ export default function Header() {
         <header>
             <div>
                 <Link to="/">
-                    <h1>Buy the Way</h1>
+                    <h1><img src={Logo} width= "300px"/> Buy the Way <img src={Logo} width= "100px"/></h1>
                 </Link>
             </div>
             <div>
