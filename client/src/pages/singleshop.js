@@ -56,8 +56,20 @@ const SingleShop = () => {
     }
   };
 
-  const { loading, data } = useQuery(QUERY_SINGLE_SHOP);
-  const items = data?.items || [];
+  const {shopId} = useParams()
+  console.log(shopId);
+
+  const { loading, errors, data } = useQuery(QUERY_SINGLE_SHOP, {
+    variables: {shopId: shopId}
+  });
+  console.log(data);
+  
+
+  if (loading) {
+    return <div>Loading...</div>; // Show a loading state while data is being fetched
+  }
+
+  const shops = data?.shop || [];
 
   function Copyright() {
     return (
@@ -119,8 +131,8 @@ const SingleShop = () => {
           </Container>
         </Box>
         <Shop
-          items={items}
-          title={Shop.shopName}
+          items={shops.items}
+          shopName={shops.shopsName}
         />
       </main>
       {/* Footer */}
