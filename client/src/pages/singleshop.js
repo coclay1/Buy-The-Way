@@ -56,8 +56,13 @@ const SingleShop = () => {
     }
   };
 
-  const { loading, data } = useQuery(QUERY_SINGLE_SHOP);
-  const items = data?.items || [];
+  const {shopId} = useParams()
+
+  const { loading, data } = useQuery(QUERY_SINGLE_SHOP, {
+    variables: {shopId: shopId}
+  });
+  const shops = data?.shop || [];
+
 
   function Copyright() {
     return (
@@ -119,8 +124,8 @@ const SingleShop = () => {
           </Container>
         </Box>
         <Shop
-          items={items}
-          title={Shop.shopName}
+          items={shops.items}
+          shopName={shops.shopsName}
         />
       </main>
       {/* Footer */}

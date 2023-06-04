@@ -35,7 +35,7 @@ export const QUERY_SINGLE_ITEM = gql`
   }
 `;
 
-export const QUERY_SHOPS = gql`
+export const QUERY_SHOPS = gql` 
   query getShops {
     shops {
       _id
@@ -48,7 +48,7 @@ export const QUERY_SINGLE_SHOP = gql`
   query getSingleShop($shopId: ID!) {
     shop(shopId: $shopId) {
       _id
-      shopName
+      shopsName
       items {
         _id
         itemName
