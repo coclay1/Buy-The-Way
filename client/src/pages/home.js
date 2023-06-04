@@ -19,7 +19,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Theme } from '../utils/theme'
 import { QUERY_SHOPS } from '../utils/queries';
 import ShopList from '../components/ShopList';
-// import theme from '../index'
 
 import { GiAnvil, GiPotionBall, GiTargetArrows, GiScrollQuill, FaRegGem } from "react-icons/fa";
 

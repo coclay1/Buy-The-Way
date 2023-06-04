@@ -4,6 +4,22 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { useMutation } from '@apollo/client';
 import { ADD_ITEM } from '../utils/mutations';
+import { QUERY_SINGLE_SHOP } from '../utils/queries';
+import CssBaseline from '@mui/material/CssBaseline';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Link from '@mui/material/Link';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Theme } from '../utils/theme';
+import Shop from '../components/Shop';
+
+
 
 const SingleShop = () => {
   const [formState, setFormState] = useState({
@@ -102,9 +118,9 @@ const SingleShop = () => {
             </Stack>
           </Container>
         </Box>
-        <ShopList
+        <Shop
           items={items}
-          title={shopName}
+          title={Shop.shopName}
         />
       </main>
       {/* Footer */}
