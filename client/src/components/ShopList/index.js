@@ -25,7 +25,7 @@ const ShopList = ({
             {shops.map((shop) => (
               <Grid item key={shop._id} xs={12} sm={6} md={6}>
                 <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                  <CardActionArea href={`/shops/${shop._id}`}>
+                  <CardActionArea href={`/shop/${shop._id}`}>
                     <CardMedia
                       component="div"
                       sx={{
