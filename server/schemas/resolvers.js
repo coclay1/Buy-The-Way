@@ -72,7 +72,7 @@ const resolvers = {
       
       addItem: async (parent, { shopId, itemName, itemPrice }) => {
         
-            return Items.findOneAndUpdate(
+            return await Items.findOneAndUpdate(
                { _id: shopId },
                {
                   $addToSet: {
