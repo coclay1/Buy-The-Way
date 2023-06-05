@@ -86,7 +86,7 @@ const SingleShop = () => {
           color="text.secondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          Thanks for visiting our page!
         </Typography>
         <Copyright />
       </Box>
