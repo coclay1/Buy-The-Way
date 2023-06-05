@@ -18,4 +18,15 @@ export const Theme = createTheme({
         paper: '#f3d0a9',
       },
     },
+    typography: {
+      h1: {
+        fontFamily: 'MedievalSharp',
+      },
+      h5: {
+        fontFamily: 'MedievalSharp',
+      },
+      body1: {
+        fontFamily: 'MedievalSharp',
+      },
+    },
   });

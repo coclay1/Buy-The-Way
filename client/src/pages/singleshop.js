@@ -18,52 +18,20 @@ import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Theme } from '../utils/theme';
 import Shop from '../components/Shop';
+import ItemForm from '../components/ItemForm';
 
 
 
 const SingleShop = () => {
-  const [formState, setFormState] = useState({
-    itemName: '',
-    itemPrice: '',
-  });
 
-  // Set up our mutation with an option to handle errors
-  const [addItem, { error }] = useMutation(ADD_ITEM);
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    // On form submit, perform mutation and pass in form data object as arguments
-    // It is important that the object fields are match the defined parameters in `ADD_THOUGHT` mutation
-    try {
-      const { data } = addItem({
-        variables: { itemName: formState.itemName, itemPrice: formState.itemPrice },
-      });
-
-      window.location.reload();
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    if (name === 'itemName' && value.length <= 280) {
-      setFormState({ ...formState, [name]: value });
-    } else if (name !== 'itemName') {
-      setFormState({ ...formState, [name]: value });
-    }
-  };
-
-  const {shopId} = useParams()
+  const { shopId } = useParams()
   console.log(shopId);
 
   const { loading, errors, data } = useQuery(QUERY_SINGLE_SHOP, {
-    variables: {shopId: shopId}
+    variables: { shopId: shopId }
   });
   console.log(data);
-  
+
 
   if (loading) {
     return <div>Loading...</div>; // Show a loading state while data is being fetched
@@ -130,10 +98,12 @@ const SingleShop = () => {
             </Stack>
           </Container>
         </Box>
+        
         <Shop
           items={shops.items}
           shopName={shops.shopsName}
         />
+        <ItemForm />
       </main>
       {/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">

@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-
 import { ADD_ITEM } from '../../utils/mutations';
+import CssBaseline from '@mui/material/CssBaseline';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { Theme } from '../../utils/theme'
+import TextField from '@mui/material/TextField';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 
 const ItemForm = () => {
     const [formState, setFormState] = useState({
@@ -40,7 +48,7 @@ const ItemForm = () => {
 
   return (
     <ThemeProvider theme={Theme}>
-    <Container component="main">
+    <Container component="main" sx={{ p: 6 }}>
       <CssBaseline />
       <Box
         sx={{

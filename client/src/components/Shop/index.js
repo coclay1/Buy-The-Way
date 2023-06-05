@@ -38,6 +38,7 @@ const Shop = ({
                                     <CardContent sx={{ flexGrow: 1 }}>
                                         <Typography gutterBottom variant="h5" align="center" component="div">
                                             {item.itemName}
+                                            <div></div>
                                             {item.itemPrice}
                                         </Typography>
 

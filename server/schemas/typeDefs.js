@@ -48,7 +48,7 @@ type Mutation {
     addCharacter(characterId: ID!, characterName: String!): Character
     removeShop(shopId: ID!): Shop
     removeCharacter(characterId: ID!): Character
-    addItem(itemId: ID!, itemName: String!): Item
+    addItem(shopId: ID!, itemName: String!, itemPrice: Float!): Shop
     removeItem(itemId: ID!): Item
 }
 

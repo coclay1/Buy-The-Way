@@ -70,17 +70,21 @@ const resolvers = {
          }
       },
       
-      addItem: async (parent, { shopId, itemName }, context) => {
-         if (context.user) {
+      addItem: async (parent, { shopId, itemName, itemPrice }) => {
+        
             return Items.findOneAndUpdate(
                { _id: shopId },
                {
                   $addToSet: {
-                     Items: { itemName, itemPrice },
+                     items: { itemName, itemPrice }},
                   },
-               },
+                  {
+                     new: true,
+                     runValidators: true,
+                  }
+               
             )
-         }
+         
       },
 
    }
