@@ -68,7 +68,7 @@ export default function Login() {
             Sign in
           </Typography>
           <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1, bgcolor: 'background.paper' }}>
-            <TextField
+          <TextField
               margin="normal"
               required
               fullWidth
@@ -77,7 +77,8 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
-              
+              value={formState.email}
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
@@ -88,6 +89,8 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={formState.password}
+              onChange={handleChange}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
