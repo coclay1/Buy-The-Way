@@ -14,7 +14,7 @@ export default function Header() {
         <header>
             <div>
                 <Link to="/">
-                    <h1><img src={Logo} width= "300px"/> Buy the Way <img src={Logo} width= "100px"/></h1>
+                    <h1><img src={Logo} width= "300px"/></h1>
                 </Link>
             </div>
             <div>
