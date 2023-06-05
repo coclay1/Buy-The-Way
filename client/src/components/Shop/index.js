@@ -6,8 +6,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Toolbar from '@mui/material/Toolbar';
+import AppBar from '@mui/material/AppBar';
 // import CameraIcon from '@mui/icons-material/PhotoCamera';
-
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
 
 const Shop = ({
@@ -19,7 +23,28 @@ const Shop = ({
 
     return (
         <div>
-            {showTitle && <h3>{shopName}</h3>}
+        <Box
+          sx={{
+            bgcolor: 'background.paper',
+            pt: 8,
+            pb: 6,
+          }}
+        >
+          <Container maxWidth="sm">
+            <Typography
+              component="h1"
+              variant="h2"
+              align="center"
+              color="text.primary"
+              gutterBottom
+            >
+              {shopName}
+            </Typography>
+            <Typography variant="h5" align="center" color="text.secondary" paragraph>
+              The following items are available in this shop:
+            </Typography>
+          </Container>
+        </Box>
             <Container sx={{ py: 8 }} maxWidth="md">
                 {/* End hero unit */}
                 <Grid container spacing={4}>
@@ -49,7 +74,7 @@ const Shop = ({
                     ))}
                 </Grid>
             </Container>
-        </div>
+            </div>
     )
 }
 

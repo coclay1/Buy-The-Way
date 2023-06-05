@@ -67,37 +67,7 @@ const SingleShop = () => {
       </AppBar>
       <main>
         {/* Hero unit */}
-        <Box
-          sx={{
-            bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
-          }}
-        >
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Album layout
-            </Typography>
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Pick a shop below to see what items are available, or create a new shop!
-            </Typography>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button variant="contained">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
-            </Stack>
-          </Container>
-        </Box>
+        
         
         <Shop
           items={shops.items}
@@ -116,7 +86,7 @@ const SingleShop = () => {
           color="text.secondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          Thanks for visiting our page!
         </Typography>
         <Copyright />
       </Box>

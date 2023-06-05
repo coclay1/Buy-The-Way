@@ -74,25 +74,15 @@ const Home = () => {
               color="text.primary"
               gutterBottom
             >
-              Album layout
+              Your Shops:
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Pick a shop below to see what items are available, or create a new shop!
+              Pick a Shop Below to See What Items are Available!
             </Typography>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button variant="contained">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
-            </Stack>
           </Container>
         </Box>
                 <ShopList
                   shops={shops}
-                  title="Your Shops:"
                 />
       </main>
       {/* Footer */}
@@ -106,7 +96,7 @@ const Home = () => {
           color="text.secondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          Thanks for visiting our page!
         </Typography>
         <Copyright />
       </Box>
