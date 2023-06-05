@@ -125,7 +125,7 @@ const SingleShop = () => {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained">Main call to action</Button>
+              <Button variant="contained">**Add Item**</Button>
               <Button variant="outlined">Secondary action</Button>
             </Stack>
           </Container>
